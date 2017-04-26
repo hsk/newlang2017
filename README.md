@@ -28,7 +28,7 @@ Postocamlの文法は大きくわけて字句解析パートと構文解析パ�
          | d+
     d  ::= 宣言
          | def x1...xn = e                再帰宣言
-         | val x1...xn = e                変数宣言
+         | let x1...xn = e                let宣言
     e  ::= 式
          | {| x1 -> e1 | ... | xn -> en } 部分関数
          | x                              変数
@@ -53,7 +53,7 @@ Postocamlの文法は大きくわけて字句解析パートと構文解析パ�
 ### 構文解析
 #### 宣言 declare
 
-    val x = e
+    let x = e
 
 OCaml の let 宣言です。
 
