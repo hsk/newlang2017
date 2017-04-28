@@ -1,6 +1,6 @@
-# new lang 2017
+# NewLang 2017
 
-## new lang 2017 とは
+# 1. NewLang 2017 とは
 
   新しい言語を1年に1回作ってみようと言う企画です。
   仕様をしっかり BNF で書いて操作的意味論を書いて SWI-Prolog [[1]<a name="r1"></a>](#1) で動かし、 OCaml [[2]<a name="r2"></a>](#2) などの言語でも実装してみようというものです。
@@ -8,22 +8,24 @@
   まだ軌道に乗っていないので試行錯誤の段階ですが徐々に形にしていければと考えています。
   Shen [[3]<a name="r3"></a>](#3) が思想的に近いかもしれません。
 
-## 今年のお題
+# 2. 今年のお題
 
   今年のお題は OCaml の不満を修整した言語を作ろうです。
   Twitter で OCaml の文法気持ち悪いとかあまり聞かないとか言う話から、どこが気持ち悪いかなぁみたいな話題があったので、 OCaml をこうしたいというような言語を作ってみようと思います。
 
-## 名前
+# 3. 言語名
 
   とりあえず、 Postocaml にしておきます。
+  Post OCaml 略して Postocaml です。
 
-# 構文 grammer
+
+# 4. 文法 Grammer
 
   Postocaml の文法は大きくわけて字句解析パートと構文解析パートに別れます。
   字句解析パートではテキスト文字列をトークンに分割します。
   構文解析パートではトークン列から構文木への構文規則を示します。
 
-# 構文サマリ syntax summary
+# 4.1 構文サマリ Syntax summary
 
     p  ::=                                プログラム
          | d (;;? d)*                     宣言列
@@ -48,9 +50,9 @@
          | [e1;...;en]                    リスト
          | [|e1;...;en|]                  配列
 
-## 構文 syntax
+## 4.2 構文 Syntax
 
-## プログラム program
+## 4.2.1 プログラム Program
 
     p  ::=                                プログラム
          | d (;;? d)*                     宣言列
@@ -64,7 +66,7 @@
     ;;
     sub 2 3
 
-## 宣言 declare
+## 4.2.2 宣言 Declare
 
   文法
 
@@ -74,7 +76,7 @@
          | e                              式
 
 
-### let 宣言 let declare
+### 4.2.2.1 Let 宣言 Let declare
 
   構文
 
@@ -82,7 +84,7 @@
 
   OCaml の `let` 宣言です。
 
-### def 宣言 def declare
+### 4.2.2.2 Def 宣言 Def declare
 
   構文
 
@@ -98,7 +100,7 @@
 
   のシンタックスシュガーです。
 
-### 式宣言 expression declare
+### 4.2.2.3 式宣言 Expression declare
 
   構文
 
@@ -108,28 +110,28 @@
 
     printf "test\n"
 
-## 式 expression
+## 4.2.3 式 Expression
 
   構文
 
     e  ::=                                式
-         | {| x1 -> e1 | ... | xn -> en } 部分関数
-         | x                              変数
-         | i                              整数
-         | e + e                          加算
-         | e - e                          減算
+         | {| x1 -> e1 | ... | xn -> en } 部分関数式
+         | e1 ; e2                        文式
+         | x                              変数式
+         | i                              整数式
+         | e + e                          加算式
+         | e - e                          減算式
          | if e then e else e             条件式
-         | e1 e2                          関数適用
+         | e1 e2                          関数適用式
          | e2 |> e1                       連結式
          | let x=e1 ; e2                  let 式
          | def x=e1 ; e2                  def 式
-         | e1 ; e2                        文
-         | ( e )                          括弧
-         | {l1=e1;...;ln=en}              レコード
-         | [e1;...;en]                    リスト
-         | [|e1;...;en|]                  配列
+         | ( e )                          括弧式
+         | {l1=e1;...;ln=en}              レコード式
+         | [e1;...;en]                    リスト式
+         | [|e1;...;en|]                  配列式
 
-### 部分関数式 partial function expression
+### 4.2.3.1 部分関数式 Partial function expression
 
   構文
 
@@ -183,13 +185,100 @@
   Scala の `match` 式および部分関数は `case` や `match` のキーワードが冗長です。
   そこで Postocaml では、 OCaml の 配列は `[|` から始まるように `{|` から始まる式を部分関数とすることでパターンマッチ式を記述しました。
 
-### 文式 statement expression
+### 4.2.3.2 文式 Statement expression
 
-  文は式と式を2項演算子 `;` を用いて結合した式です。 文は文であると同時に式であるので式として使うことが出来ます。
+  構文
 
     e ; e
 
-# 参照
+  文は式と式を2項演算子 `;` を用いて結合した式です。 文は文であると同時に式であるので式として使うことが出来ます。
+
+### 4.2.3.3 変数式 Variable expression
+
+  構文
+
+    x
+
+
+### 4.2.3.4 整数式 Integer expression
+
+  構文
+
+    i
+
+### 4.2.3.5 加算式 Add expression
+
+  構文
+
+    e + e
+
+### 4.2.3.6 減算式 Sub expression
+
+  構文
+
+    e - e
+
+
+### 4.2.3.7 条件式 If expression
+
+  構文
+
+    if e then e else e
+
+### 4.2.3.8 関数適用式 Function apply expression
+
+  構文
+
+    e1 e2
+
+
+### 4.2.3.9 連結式 Concat expression
+
+  構文
+
+    e2 |> e1
+
+### 4.2.3.10 Let式 Let expression
+
+  構文
+
+    let x=e1 ; e2
+
+### 4.2.3.11 定義式 Def expression
+
+  構文
+
+    def x=e1 ; e2
+
+### 4.2.3.12 括弧式 Paren expression
+
+  構文
+
+    ( e )
+
+
+### 4.2.3.13 レコード式 Record expression
+
+  構文
+
+    {l1=e1;...;ln=en}
+
+
+### 4.2.3.14 リスト式 List expression
+
+  構文
+
+    [e1;...;en]
+
+
+### 4.2.3.15 配列式 Array expression
+
+  構文
+
+    [|e1;...;en|]
+
+
+# 5. 参照
 
 [[1]<a name="1"></a>](#r1) SWI-Prolog
 
