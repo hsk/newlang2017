@@ -112,6 +112,8 @@
 
     printf "test\n"
 
+  Postocaml では、宣言部分に式を直接書くことが出来ます。
+
 ## 4.2.3 式 Expression
 
   構文
@@ -121,6 +123,7 @@
          | e1 ; e2                        文式
          | x                              変数式
          | i                              整数式
+         | s                              文字列式
          | e + e                          加算式
          | e - e                          減算式
          | if e then e else e             条件式
@@ -201,6 +204,12 @@
 
     x
 
+  例
+
+    abc
+    i
+    text_data
+    _test01
 
 ### 4.2.3.4 整数式 Integer expression
 
@@ -208,72 +217,95 @@
 
     i
 
-### 4.2.3.5 加算式 Add expression
+  例
+
+    123
+    0xfabc
+
+### 4.2.3.5 文字列式 String expression
+
+  構文
+
+    s
+
+  例
+
+    "hello world"
+
+
+### 4.2.3.6 加算式 Add expression
 
   構文
 
     e + e
 
-### 4.2.3.6 減算式 Sub expression
+  例
+
+    1 + 2
+
+### 4.2.3.7 減算式 Sub expression
 
   構文
 
     e - e
 
+  例
 
-### 4.2.3.7 条件式 If expression
+    1 - 2
+
+### 4.2.3.8 条件式 If expression
 
   構文
 
     if e then e else e
 
-### 4.2.3.8 関数適用式 Function apply expression
+### 4.2.3.9 関数適用式 Function apply expression
 
   構文
 
     e1 e2
 
 
-### 4.2.3.9 連結式 Concat expression
+### 4.2.3.10 連結式 Concat expression
 
   構文
 
     e2 |> e1
 
-### 4.2.3.10 Let式 Let expression
+### 4.2.3.11 Let式 Let expression
 
   構文
 
     let x=e1 ; e2
 
-### 4.2.3.11 定義式 Def expression
+### 4.2.3.12 定義式 Def expression
 
   構文
 
     def x=e1 ; e2
 
-### 4.2.3.12 括弧式 Paren expression
+### 4.2.3.13 括弧式 Paren expression
 
   構文
 
     ( e )
 
 
-### 4.2.3.13 レコード式 Record expression
+### 4.2.3.14 レコード式 Record expression
 
   構文
 
     {l1=e1;...;ln=en}
 
 
-### 4.2.3.14 リスト式 List expression
+### 4.2.3.15 リスト式 List expression
 
   構文
 
     [e1;...;en]
 
 
-### 4.2.3.15 配列式 Array expression
+### 4.2.3.16 配列式 Array expression
 
   構文
 
@@ -282,12 +314,12 @@
 
 # 5. 参照
 
-[[1]<a name="1"></a>](#r1) SWI-Prolog http://www.swi-prolog.org
+  [[1]<a name="1"></a>](#r1) SWI-Prolog http://www.swi-prolog.org
 
-[[2]<a name="2"></a>](#r2) OCaml http://ocaml.org
+  [[2]<a name="2"></a>](#r2) OCaml http://ocaml.org
 
-[[3]<a name="3"></a>](#r3) Shen http://shenlanguage.org
+  [[3]<a name="3"></a>](#r3) Shen http://shenlanguage.org
 
-[[4]<a name="4"></a>](#r4) Coq https://coq.inria.fr
+  [[4]<a name="4"></a>](#r4) Coq https://coq.inria.fr
 
-[[5]<a name="5"></a>](#r5) Scala https://www.scala-lang.org
+  [[5]<a name="5"></a>](#r5) Scala https://www.scala-lang.org
