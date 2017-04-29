@@ -282,12 +282,12 @@
 
 # 5. 参照
 
-[[1]<a name="1"></a>](#r1) SWI-Prolog
+[[1]<a name="1"></a>](#r1) SWI-Prolog http://www.swi-prolog.org
 
-[[2]<a name="2"></a>](#r2) OCaml
+[[2]<a name="2"></a>](#r2) OCaml http://ocaml.org
 
-[[3]<a name="3"></a>](#r3) Shen
+[[3]<a name="3"></a>](#r3) Shen http://shenlanguage.org
 
-[[4]<a name="4"></a>](#r4) Coq
+[[4]<a name="4"></a>](#r4) Coq https://coq.inria.fr
 
-[[5]<a name="5"></a>](#r5) Scala
+[[5]<a name="5"></a>](#r5) Scala https://www.scala-lang.org
