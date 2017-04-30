@@ -41,7 +41,7 @@
          | e - e                          減算式
          | if e then e else e             条件式
          | e1 e2                          関数適用式
-         | e2 |> e1                       連結式
+         | e2 |> e1                       パイプライン式
          | let x=e1 ; e2                  let 式
          | def x=e1 ; e2                  def 式
          | e1 ; e2                        文式
@@ -128,7 +128,7 @@
          | e - e                          減算式
          | if e then e else e             条件式
          | e1 e2                          関数適用式
-         | e2 |> e1                       連結式
+         | e2 |> e1                       パイプライン式
          | let x=e1 ; e2                  let 式
          | def x=e1 ; e2                  def 式
          | ( e )                          括弧式
@@ -281,7 +281,7 @@
 
   todo 説明
 
-### 4.2.3.10 連結式 Concat expression
+### 4.2.3.10 パイプライン式 Pipeline expression
 
   構文
 
@@ -289,9 +289,9 @@
 
   例
 
-    todo
+    1 + 2 |> Printf.printf "%d\n"
 
-  todo 説明
+  F# 由来のパイプライン演算子 `|>` は `e2` の式の評価結果を `e1` 式の評価結果の関数に関数適用します。 
 
 ### 4.2.3.11 Let式 Let expression
 
