@@ -133,8 +133,12 @@
          | def x=e1 ; e2                  def 式
          | ( e )                          括弧式
          | {l1=e1;...;ln=en}              レコード式
+         | e1#e2                          選択式
          | [e1;...;en]                    リスト式
+         | e1::e2                         Cons式
          | [|e1;...;en|]                  配列式
+
+  todo: 説明
 
 ### 4.2.3.1 部分関数式 Partial function expression
 
@@ -198,6 +202,8 @@
 
   文は式と式を2項演算子 `;` を用いて結合した式です。 文は文であると同時に式であるので式として使うことが出来ます。
 
+  todo: let式とdef式の言及
+
 ### 4.2.3.3 変数式 Variable expression
 
   構文
@@ -259,12 +265,21 @@
 
     if e then e else e
 
+  例
+
+    todo
+
 ### 4.2.3.9 関数適用式 Function apply expression
 
   構文
 
     e1 e2
 
+  例
+
+    todo
+
+  todo 説明
 
 ### 4.2.3.10 連結式 Concat expression
 
@@ -272,11 +287,25 @@
 
     e2 |> e1
 
+  例
+
+    todo
+
+  todo 説明
+
 ### 4.2.3.11 Let式 Let expression
 
   構文
 
     let x=e1 ; e2
+
+  例
+
+    todo
+
+  todo 説明
+  todo in 演算子を `;` 演算子にした理由
+
 
 ### 4.2.3.12 定義式 Def expression
 
@@ -284,11 +313,24 @@
 
     def x=e1 ; e2
 
+  例
+
+    todo
+
+  todo 説明
+  todo in 演算子を `;` 演算子にした理由
+
 ### 4.2.3.13 括弧式 Paren expression
 
   構文
 
     ( e )
+
+  例
+
+    todo
+
+  todo 説明
 
 
 ### 4.2.3.14 レコード式 Record expression
@@ -297,19 +339,63 @@
 
     {l1=e1;...;ln=en}
 
+  例
 
-### 4.2.3.15 リスト式 List expression
+    todo
+
+  todo 説明
+
+### 4.2.3.15 選択式 Select expression
+
+  構文
+
+    e1 # e2
+
+  例
+
+    {x=1;y=2}#x
+    [|1;2;3|]#0
+
+  レコード、又は配列の値を取得します。
+
+### 4.2.3.16 リスト式 List expression
 
   構文
 
     [e1;...;en]
 
+  例
 
-### 4.2.3.16 配列式 Array expression
+    todo
+
+  todo 説明
+
+
+### 4.2.3.17 Cons式 Cons expression
+
+  構文
+
+    e1::e2
+
+  例
+
+    todo
+
+  todo 説明
+  todo cons式じゃないほうが良いのかも
+  todo head,tail の関数へのリンク、モジュールの追加あるいは、標準関数定義
+  
+### 4.2.3.18 配列式 Array expression
 
   構文
 
     [|e1;...;en|]
+
+  例
+
+    todo
+
+  todo 説明
 
 
 # 5. 参照
