@@ -37,6 +37,7 @@
          | {| x1 -> e1 | ... | xn -> en } 部分関数式
          | x                              変数式
          | i                              整数式
+         | b                              真偽値
          | e + e                          加算式
          | e - e                          減算式
          | if e then e else e             条件式
@@ -123,6 +124,7 @@
          | e1 ; e2                        文式
          | x                              変数式
          | i                              整数式
+         | b                              真偽値
          | s                              文字列式
          | e + e                          加算式
          | e - e                          減算式
@@ -234,7 +236,20 @@
 
   整数は `0-9` のアラビア数字の連続あるいは、 `0x` からはじまる16進数で表します.
 
-### 4.2.3.5 文字列式 String expression
+### 4.2.3.5 真偽値式 Bool expression
+
+  構文
+
+    b
+
+  例
+
+    true
+    false
+
+  真偽値は `true` または `false` の値を持ちます.
+
+### 4.2.3.6 文字列式 String expression
 
   構文
 
@@ -245,7 +260,7 @@
     "hello world"
 
 
-### 4.2.3.6 加算式 Add expression
+### 4.2.3.7 加算式 Add expression
 
   構文
 
@@ -255,7 +270,7 @@
 
     1 + 2
 
-### 4.2.3.7 減算式 Sub expression
+### 4.2.3.8 減算式 Sub expression
 
   構文
 
@@ -265,7 +280,7 @@
 
     1 - 2
 
-### 4.2.3.8 条件式 If expression
+### 4.2.3.9 条件式 If expression
 
   構文
 
@@ -275,7 +290,7 @@
 
     todo
 
-### 4.2.3.9 関数適用式 Function apply expression
+### 4.2.3.10 関数適用式 Function apply expression
 
   構文
 
@@ -287,7 +302,7 @@
 
   todo 説明
 
-### 4.2.3.10 パイプライン式 Pipeline expression
+### 4.2.3.11 パイプライン式 Pipeline expression
 
   構文
 
@@ -299,7 +314,7 @@
 
   F# 由来のパイプライン演算子 `|>` は `e2` の式の評価結果を `e1` 式の評価結果の関数に関数適用します。 
 
-### 4.2.3.11 Let式 Let expression
+### 4.2.3.12 Let式 Let expression
 
   構文
 
@@ -313,7 +328,7 @@
   todo in 演算子を `;` 演算子にした理由
 
 
-### 4.2.3.12 定義式 Def expression
+### 4.2.3.13 定義式 Def expression
 
   構文
 
@@ -326,7 +341,7 @@
   todo 説明
   todo in 演算子を `;` 演算子にした理由
 
-### 4.2.3.13 括弧式 Paren expression
+### 4.2.3.14 括弧式 Paren expression
 
   構文
 
@@ -339,7 +354,7 @@
   todo 説明
 
 
-### 4.2.3.14 レコード式 Record expression
+### 4.2.3.15 レコード式 Record expression
 
   構文
 
@@ -351,7 +366,7 @@
 
   todo 説明
 
-### 4.2.3.15 選択式 Select expression
+### 4.2.3.16 選択式 Select expression
 
   構文
 
@@ -364,7 +379,7 @@
 
   レコード、又は配列の値を取得します。
 
-### 4.2.3.16 リスト式 List expression
+### 4.2.3.17 リスト式 List expression
 
   構文
 
@@ -377,7 +392,7 @@
   todo 説明
 
 
-### 4.2.3.17 Cons式 Cons expression
+### 4.2.3.18 Cons式 Cons expression
 
   構文
 
@@ -391,7 +406,7 @@
   todo cons式じゃないほうが良いのかも
   todo head,tail の関数へのリンク、モジュールの追加あるいは、標準関数定義
   
-### 4.2.3.18 配列式 Array expression
+### 4.2.3.19 配列式 Array expression
 
   構文
 
