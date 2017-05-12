@@ -13,5 +13,5 @@ NewLang は、標準の新しい関数型言語を定義する言語仕様です
 
 ## どのように参加できますか？
 
-私たちは今仕様を定義する初期段階にあり、NewLang 2017のドラフトが[ここ](https://github.com/hsk/newlang2017/blob/staging/docs/v1draft.md)に定義されています。
+私たちは今仕様を定義する初期段階にあり、NewLang 2017のドラフトが[ここ](https://github.com/hsk/newlang2017/blob/master/docs/v1draft.md)に定義されています。
 ディスカッションを開始する[イシューリスト](https://github.com/hsk/newlang2017/issues)か、または[提案の開始](https://github.com/hsk/newlang2017/labels/proposal)で直接ご意見をお寄せください
